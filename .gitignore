@@ -1,0 +1,51 @@
+# Token
+/*Token.json
+
+# Build results
+bin/
+obj/
+out/
+
+# Visual Studio cache/options
+.vs/
+*.user
+*.suo
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Logs
+*.log
+
+# Auto-generated files
+Generated/
+*.g.cs
+
+# Publish output
+publish/
+app.publish/
+
+# ASP.NET temp files
+aspnet_client/
+App_Data/
+
+# Configuration files with secrets
+*.env
+appsettings.Development.json
+appsettings.Local.json
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# OS-specific
+.DS_Store
+Thumbs.db
+/Config/nachoToken.json
+/Config/vezToken.json
