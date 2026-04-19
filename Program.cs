@@ -1,6 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Discord;
+using Discord.Net;
 using Discord.WebSocket;
+using Newtonsoft.Json;
+
 
 DiscordSocketClient _client = new DiscordSocketClient();
 _client.Log += Log;
@@ -20,3 +23,5 @@ static Task Log(LogMessage msg)
     Console.WriteLine(msg.ToString());
     return Task.CompletedTask;
 }
+
+

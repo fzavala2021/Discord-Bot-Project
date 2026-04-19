@@ -21,11 +21,10 @@ public class ParseToken
             using var streamReader = new StreamReader(_filePath);
             var json = streamReader.ReadToEnd();
             var document = JsonDocument.Parse(json);
-            if (document.RootElement.TryGetProperty("token", out var tokenElement))
-            {
-                return tokenElement.GetString();
-            }
-
+                if (document.RootElement.TryGetProperty("token", out var tokenElement))
+                {
+                    return tokenElement.GetString();
+                }
             return null;
         }
         catch (Exception ex)
