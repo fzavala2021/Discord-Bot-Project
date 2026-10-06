@@ -27,20 +27,8 @@ if (string.IsNullOrWhiteSpace(token))
 
 await commands.AddModulesAsync(System.Reflection.Assembly.GetEntryAssembly(), services);
 
-client.MessageReceived += async rawMessage =>
-{
-    if (rawMessage is not SocketUserMessage message || message.Author.IsBot)
-        return;
-
-    int argPos = 0;
-    if (!message.HasCharPrefix('!', ref argPos))
-        return;
-
-    var context = new SocketCommandContext(client, message);
-    var result = await commands.ExecuteAsync(context, argPos, services);
-    if (!result.IsSuccess && result.Error != CommandError.UnknownCommand)
-        await message.Channel.SendMessageAsync(result.ErrorReason);
-};
+CommandHandler commandHandler = new CommandHandler(client, commands, services);
+await commandHandler.InitializeAsync();
 
 await client.LoginAsync(TokenType.Bot, token);
 await client.StartAsync();
