@@ -31,4 +31,18 @@ public class GeneralModule : ModuleBase<SocketCommandContext>
         var target = user ?? Context.User;
         await ReplyAsync($"{target.Username}#{target.Discriminator}");
     }
+
+    [Command("roll")]
+    [Summary("Rolls a die with the given number of sides (default 6).")]
+    public async Task RollAsync(int sides = 6)
+    {
+        if (sides < 2 || sides > 1000)
+        {
+            await ReplyAsync("Usage: !roll [sides] (between 2 and 1000)");
+            return;
+        }
+
+        var result = Random.Shared.Next(1, sides + 1);
+        await ReplyAsync($"{Context.User.Mention} rolled a **{result}** (d{sides})");
+    }
 }
